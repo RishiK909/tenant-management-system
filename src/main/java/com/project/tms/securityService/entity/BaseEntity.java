@@ -1,0 +1,87 @@
+package com.project.tms.securityService.entity;
+
+import com.project.tms.securityService.enums.Status;
+import jakarta.persistence.Column;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.MappedSuperclass;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.LocalDateTime;
+
+@MappedSuperclass
+public class BaseEntity {
+
+    @CreationTimestamp
+    @Column(name="created_at")
+    private LocalDateTime createdAt;
+
+    @Column(name="created_by")
+    private Long createdBy;
+
+    @UpdateTimestamp
+    @Column(name="updated_at")
+    private LocalDateTime updatedAt;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name="status")
+    private Status status = Status.Active;
+
+    @Column(name="deleted_at")
+    private LocalDateTime deletedAt;
+
+    @Column(name="updated_by")
+    private Long updated_by;
+
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Long getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(Long createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public LocalDateTime getDeletedAt() {
+        return deletedAt;
+    }
+
+    public void setDeletedAt(LocalDateTime deletedAt) {
+        this.deletedAt = deletedAt;
+    }
+
+    public Long getUpdated_by() {
+        return updated_by;
+    }
+
+    public void setUpdated_by(Long updated_by) {
+        this.updated_by = updated_by;
+    }
+}
+
+
