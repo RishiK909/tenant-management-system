@@ -6,14 +6,17 @@ import com.project.tms.securityService.enums.Status;
 import jakarta.persistence.*;
 
 
+/**
+ * Entity class for users
+ */
 @Entity
 @Table(name = "users")
 public class Users extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long user_id;
+    @Column(name = "user_id")
+    private Long id;
 
     @Column(name = "user_name")
     private String username;
@@ -36,8 +39,8 @@ public class Users extends BaseEntity{
 
     public Users() {}
 
-    public Users(Long user_id, String username, String password, String email, String phoneNumber, String address, Role role) {
-        this.user_id = user_id;
+    public Users(Long id, String username, String password, String email, String phoneNumber, String address, Role role) {
+        this.id = id;
         this.username = username;
         this.password = password;
         this.email = email;
@@ -46,12 +49,12 @@ public class Users extends BaseEntity{
         this.role = role;
     }
 
-    public Long getUser_id() {
-        return user_id;
+    public Long getId() {
+        return id;
     }
 
-    public void setUser_id(Long user_id) {
-        this.user_id = user_id;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getUsername() {

@@ -10,6 +10,11 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
+
+/**
+ * MappedSuperclass makes the class base class
+ * No table is created in db it is used for sharing common code to entity fields
+ */
 @MappedSuperclass
 public class BaseEntity {
 
