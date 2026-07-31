@@ -2,7 +2,6 @@ package com.project.tms.securityService.entity;
 
 
 import com.project.tms.securityService.enums.Role;
-import com.project.tms.securityService.enums.Status;
 import jakarta.persistence.*;
 
 
@@ -11,15 +10,15 @@ import jakarta.persistence.*;
  */
 @Entity
 @Table(name = "users")
-public class Users extends BaseEntity{
+public class Users extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
-    private Long id;
+    @Column(name = "id")
+    private Long userId;
 
     @Column(name = "user_name")
-    private String username;
+    private String userName;
 
     @Column(name = "password")
     private String password;
@@ -37,11 +36,12 @@ public class Users extends BaseEntity{
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    public Users() {}
+    public Users() {
+    }
 
-    public Users(Long id, String username, String password, String email, String phoneNumber, String address, Role role) {
-        this.id = id;
-        this.username = username;
+    public Users(Long userId, String userName, String password, String email, String phoneNumber, String address, Role role) {
+        this.userId = userId;
+        this.userName = userName;
         this.password = password;
         this.email = email;
         this.phoneNumber = phoneNumber;
@@ -49,20 +49,20 @@ public class Users extends BaseEntity{
         this.role = role;
     }
 
-    public Long getId() {
-        return id;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPassword() {

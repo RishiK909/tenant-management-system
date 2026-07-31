@@ -3,7 +3,6 @@ package com.project.tms.securityService.service;
 
 import com.project.tms.securityService.entity.Users;
 import com.project.tms.securityService.repository.UsersRepository;
-import jakarta.websocket.server.ServerEndpoint;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -30,10 +29,10 @@ public class UserDetailServiceImpl implements UserDetailsService {
     }
 
     /**
-     * @method loadUserByUsername is the inbuild the method
      * @param username the username identifying the user whose data is required.
      * @return
      * @throws UsernameNotFoundException
+     * @method loadUserByUsername is the inbuild the method
      */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
