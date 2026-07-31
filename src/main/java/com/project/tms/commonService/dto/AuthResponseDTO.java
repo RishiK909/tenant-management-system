@@ -7,14 +7,20 @@ public class AuthResponseDTO {
     private String token;
     private Date expiresAt;
     private Long id;
-    private String username;
+    private String userName;
     private String role;
 
-    public AuthResponseDTO(String token, Date expiresAt, Long id, String username, String role) {
+    public AuthResponseDTO(String token, Date expiresAt, Long id, String userName, String role) {
         this.token = token;
         this.expiresAt = expiresAt;
         this.id = id;
-        this.username = username;
+        this.userName = userName;
+        this.role = role;
+    }
+
+    public AuthResponseDTO(Long id, String userName, String role) {
+        this.id = id;
+        this.userName = userName;
         this.role = role;
     }
 
@@ -42,12 +48,12 @@ public class AuthResponseDTO {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getRole() {
