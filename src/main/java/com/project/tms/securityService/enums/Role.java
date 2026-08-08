@@ -4,5 +4,6 @@ public enum Role {
 
     Admin,
     Broker,
-    Tenant
+    Tenant,
+    Owner
 }
