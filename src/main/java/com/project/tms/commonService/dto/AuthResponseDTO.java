@@ -1,16 +1,17 @@
 package com.project.tms.commonService.dto;
 
 import java.util.Date;
+import java.util.UUID;
 
 public class AuthResponseDTO {
 
     private String token;
     private Date expiresAt;
-    private Long id;
+    private UUID id;
     private String userName;
     private String role;
 
-    public AuthResponseDTO(String token, Date expiresAt, Long id, String userName, String role) {
+    public AuthResponseDTO(String token, Date expiresAt, UUID id, String userName, String role) {
         this.token = token;
         this.expiresAt = expiresAt;
         this.id = id;
@@ -18,7 +19,7 @@ public class AuthResponseDTO {
         this.role = role;
     }
 
-    public AuthResponseDTO(Long id, String userName, String role) {
+    public AuthResponseDTO(UUID id, String userName, String role) {
         this.id = id;
         this.userName = userName;
         this.role = role;
@@ -40,11 +41,11 @@ public class AuthResponseDTO {
         this.expiresAt = expiresAt;
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

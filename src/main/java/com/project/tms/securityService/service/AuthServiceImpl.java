@@ -5,6 +5,7 @@ import com.project.tms.commonService.dto.AuthResponseDTO;
 import com.project.tms.securityService.dto.LoginRequestDTO;
 import com.project.tms.securityService.dto.UserRegisterDto;
 import com.project.tms.securityService.entity.Users;
+import com.project.tms.securityService.enums.Role;
 import com.project.tms.securityService.enums.Status;
 import com.project.tms.securityService.repository.UsersRepository;
 import com.project.tms.securityService.security.JwtUtil;
@@ -46,6 +47,10 @@ public class AuthServiceImpl implements AuthService{
         if (usersRepository.findByPhoneNumber(request.getPhoneNumber()).isPresent()) {
             return new ApiResponse<>("Phone number already exists", false);
         }
+
+        /*if (request.getRole() == Role.Admin) {
+            return new ApiResponse<>("You cannot register as ADMIN", false);
+        }*/
 
         Users user = new Users();
         user.setUserName(request.getUserName());

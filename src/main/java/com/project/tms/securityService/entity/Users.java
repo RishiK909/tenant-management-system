@@ -4,6 +4,8 @@ package com.project.tms.securityService.entity;
 import com.project.tms.securityService.enums.Role;
 import jakarta.persistence.*;
 
+import java.util.UUID;
+
 
 /**
  * Entity class for users
@@ -13,9 +15,9 @@ import jakarta.persistence.*;
 public class Users extends BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long userId;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "id", updatable = false, nullable = false)
+    private UUID userId;
 
     @Column(name = "user_name")
     private String userName;
@@ -39,7 +41,7 @@ public class Users extends BaseEntity {
     public Users() {
     }
 
-    public Users(Long userId, String userName, String password, String email, String phoneNumber, String address, Role role) {
+    public Users(UUID userId, String userName, String password, String email, String phoneNumber, String address, Role role) {
         this.userId = userId;
         this.userName = userName;
         this.password = password;
@@ -49,11 +51,11 @@ public class Users extends BaseEntity {
         this.role = role;
     }
 
-    public Long getUserId() {
+    public UUID getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(UUID userId) {
         this.userId = userId;
     }
 

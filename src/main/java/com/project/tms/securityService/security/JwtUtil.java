@@ -2,7 +2,6 @@ package com.project.tms.securityService.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,6 +11,7 @@ import javax.crypto.SecretKey;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 @Component
 public class JwtUtil {
@@ -29,9 +29,9 @@ public class JwtUtil {
         this.key = Keys.hmacShaKeyFor(secret.getBytes());
     }
 
-    public String generateToken(Long id, String username, String email, String role) {
+    public String generateToken(UUID userId, String username, String email, String role) {
         Map<String, Object> claims = new HashMap<>();
-        claims.put("id", id);
+        claims.put("userId", userId);
         claims.put("username", username);
         claims.put("role", role);
 
@@ -48,10 +48,12 @@ public class JwtUtil {
         return extractAllClaims(token).getSubject();
     }
 
-    public Long extractId(String token) {
-        return extractAllClaims(token).get("id", Long.class);
-    }
+    public UUID extractUserId(String token) {
+        String id = extractAllClaims(token)
+                .get("userId", String.class);
 
+        return UUID.fromString(id);
+    }
     public String extractRole(String token) {
         return extractAllClaims(token).get("role", String.class);
     }
