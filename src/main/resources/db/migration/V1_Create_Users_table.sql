@@ -1,6 +1,6 @@
 CREATE TABLE users
 (
-    id                      CHAR(36),
+    id                      UUID NOT NULL ,
     user_name               VARCHAR(255) NOT NULL,
     email                   VARCHAR(255) NOT NULL,
     password                VARCHAR(255) NOT NULL,
@@ -9,8 +9,8 @@ CREATE TABLE users
     role                    VARCHAR(255) NOT NULL,
 
     created_at              TIMESTAMP WITHOUT TIME ZONE,
-    created_by              BIGINT,
-    updated_by              BIGINT,
+    created_by              UUID,
+    updated_by              UUID,
     updated_at              TIMESTAMP WITHOUT TIME ZONE,
     deleted_at              TIMESTAMP WITHOUT TIME ZONE,
     status                  VARCHAR(255),
