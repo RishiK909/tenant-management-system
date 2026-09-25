@@ -12,11 +12,11 @@
 		<relativePath/>
 	</parent>
 
-	<groupId>com.fyntune</groupId>
-	<artifactId>phi-sales</artifactId>
+	<groupId>com.security</groupId>
+	<artifactId>security-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>phi-sales</name>
-	<description>phi-sales</description>
+	<name>Security</name>
+	<description>security-service</description>
 
 	<properties>
 		<java.version>21</java.version>
